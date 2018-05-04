@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+  <servers>
+    <server>
+      <id>artifactory-project-release</id>
+      <username>uc40428</username>
+      <password>AP8x5BWu78whzJKHssFk2vjQYHM</password>
+    </server>
+    <server>
+      <id>artifactory-project-snapshot</id>
+      <username>uc40428</username>
+      <password>AP8x5BWu78whzJKHssFk2vjQYHM</password>
+    </server>
+  </servers>
+  
+  <mirror>
+      <id>artifactory</id>
+      <url>https://repository.deere.com/artifactory/libs-release-public</url>
+      <mirrorOf>*</mirrorOf>
+  </mirror> 
+ 
+  
+  <profiles>
+    <profile>
+      <!-- ARTIFACTORY PROFILE -->
+      <id>artifactory</id>
+      <repositories>
+        <repository>
+          <!-- RELEASES -->
+          <id>artifactory-project-release</id>
+          <name>artifactory-project-release</name>
+          <url>https://repository.deere.com/artifactory/libs-release-public</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+        <repository>
+          <!-- SNAPSHOTS -->
+          <id>artifactory-project-snapshot</id>
+          <name>artifactory-project-snapshot</name>
+          <url>https://repository.deere.com/artifactory/dsfj-snapshot</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+        <repository>
+          <!-- DISABLE CENTRAL -->
+          <id>central</id>
+          <url>http://repo1.maven.org/maven2</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>        
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <!-- RELEASES -->
+          <id>artifactory-project-release</id>
+          <name>artifactory-project-release</name>
+          <url>https://repository.deere.com/artifactory/libs-release-public</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <!-- SNAPSHOTS -->
+          <id>artifactory-project-snapshot</id>
+          <name>artifactory-project-snapshot</name>
+          <url>https://repository.deere.com/artifactory/project-snapshot</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <!-- DISABLE CENTRAL -->
+          <id>central</id>
+          <url>http://repo1.maven.org/maven2</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+  
+</settings>
